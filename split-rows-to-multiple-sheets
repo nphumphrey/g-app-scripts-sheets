@@ -1,0 +1,91 @@
+function splitSheet() {
+  //capture every 20 
+  //split copy on new sheet
+  
+  //Next update: include a calculation that works out number of sheets based on total number of rows
+  //round to nearest integer
+  var TotalNumOfRows=84;
+  var copyEveryNumOfRows=20;
+  //just initialize calcSheetsNeeded to int
+  var calcSheetsNeeded=5;
+  var calcSheetsNeeded=TotalNumOfRows/copyEveryNumOfRows;
+  var startRow=1;  
+  var endRow=startRow+copyEveryNumOfRows;
+  
+  
+  
+ // var startSheetNumber=18;
+  
+  //You still need to change this number to the next sheet number ... manually :-(
+  var startSheet=42;
+  var numOfSheets=startSheet+calcSheetsNeeded;
+    var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  
+  //loop on number of sheets
+  
+  for (var num = startSheet; num < numOfSheets; num++) {
+  
+    var yourMainSheet = activeSpreadsheet.getSheetByName("MSG1GmailList");
+    var yourNewSheet = activeSpreadsheet.getSheetByName("Sheet"+num);
+    
+    yourNewSheet = activeSpreadsheet.insertSheet();
+    yourNewSheet.setName("G2-"+ num);
+    
+    //var sheet = SpreadsheetApp.getActiveSheet();
+    var data = yourMainSheet.getDataRange().getValues();
+    
+    //create header
+    
+    var j = 1;
+    var i = 0;
+    yourNewSheet.getRange('A'+j).setValue(data[i][0]);
+    yourNewSheet.getRange('B'+j).setValue(data[i][1]);
+    yourNewSheet.getRange('C'+j).setValue(data[i][2]);
+    
+    
+    j=0;
+    var n=1;
+    
+    //capture every 20 to new sheet
+    for (var i = startRow; i < endRow; i++) {
+      j=n+1;
+      //copy
+      //Logger.log('Product name: ' + data[i][0]);
+      //Logger.log('Product number: ' + data[i][1]);
+      
+      //handle a null value
+      //this happens when there is no further content towards end of records
+      
+      try{
+        // function code goes here;
+        // add more elements to onErrObj as desired;
+        yourNewSheet.getRange('A'+j).setValue(data[i][0]);
+        yourNewSheet.getRange('B'+j).setValue(data[i][1]);
+        yourNewSheet.getRange('C'+j).setValue(data[i][2]);
+        
+      }catch(e){
+        //leaving error catch empty
+        //can display message here as necessary:
+        
+        //throw new Error( "More meaningful error." );
+        
+        //or call a function to display error:
+        
+        //onErrObj['data1'] = 'someData';
+        //onErrObj['data'] = 'some Other Data';
+        //errHandler(e,'myFunction');        
+      }
+      
+      n=n+1;
+    }  
+    
+    //move to next set of rows to copy
+    //before looping to next sheet number to copy
+    
+    startRow=startRow+copyEveryNumOfRows
+    endRow=endRow+copyEveryNumOfRows
+    
+    //end of loop on sheet numbers
+  }
+  
+}
