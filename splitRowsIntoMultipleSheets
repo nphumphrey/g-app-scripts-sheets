@@ -1,4 +1,8 @@
-function splitSheet() {
+function splitRowsIntoMultipleSheets() {
+  //A function to splitRowsIntoMultipleSheets based on an input number of rows
+  //I found this helpful to break down a large number of rows to make it more manageable to import
+  //Basically because the import function on the particular web system I was supporting was very slow processing large numbers of rows
+  //
   //capture every 20 
   //split copy on new sheet
   
