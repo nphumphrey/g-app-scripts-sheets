@@ -1,6 +1,11 @@
 function SplitSheetIntoClasses() {
-// A function to SplitSheetIntoClasses
-//based on a particular column that contains classes (i.e. Form)
+  // A function to SplitSheetIntoClasses
+  //based on a particular column that contains classes (i.e. Form)
+  //
+  //resource:
+  //https://stackoverflow.com/questions/60674902/i-need-to-split-a-google-sheet-into-multiple-tabs-sheets-based-on-column-value
+  //
+  //
   
   var sheet = SpreadsheetApp.getActiveSheet();
 
