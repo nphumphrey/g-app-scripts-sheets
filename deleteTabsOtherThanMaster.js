@@ -1,3 +1,4 @@
+// deleteTabsOtherThanMaster - will revert the change done by 'splitSheetIntoTabs'. This function will help to revert the changes done by splitSheetIntoTabs.
 // use this function revert the sheets create by splitSheetIntoTabs()
 
 function deleteTabsOtherThanMaster() {
