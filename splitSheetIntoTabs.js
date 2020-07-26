@@ -1,3 +1,5 @@
+//splitSheetIntoTabs - will split your master sheet in to separate sheets of 30 rows each. It will copy only the content not the background colors etc.
+
 function splitSheetIntoTabs() {
    var sheet = SpreadsheetApp.getActiveSheet();
   var rows = SpreadsheetApp.getActiveSheet().getDataRange().getValues();
